@@ -1,6 +1,6 @@
 # Constant Product AMMs
 
-Here's my understanding of how a "constant product" automated liquidity protocol works. Warning, this may not be entirely correct, I'm no expert. All corrections or other suggestions for improvement welcomed.
+Here's my understanding of how a "constant product" automated liquidity protocol works. Warning, this may not be entirely correct, I'm no expert. Any corrections or other suggestions for improvement welcomed.
 
 Say we are trading a pair of ERC-20 tokens A and B. There is a liquidity pool, a collection of tokens of the two types, A and B. This is set up so that there are approximately equal (in dollar equivalent) amounts of each. So if an A currently trades for 10 B the pool will contain approximately 10 times as many B tokens as A tokens. There are two types of transactions that can add or remove tokens from the pool. The first is normal trading where someone has tokens of type A that they wish to exchange for tokens of type B - or the other way around, trading B for A. The second type of transaction is where liquidity providers add or withdraw liquidity. These two types, normal trading and adding/removing liquidity, work in very different ways...
 
