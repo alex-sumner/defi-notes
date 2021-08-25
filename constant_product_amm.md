@@ -12,7 +12,7 @@ There are two types of transactions that can add or remove tokens from the pool.
 
 Normal trading is at a rate determined by the AMM contract. For a constant product protocol the exchange rate you get is whatever is needed to keep constant the product of the number of A tokens and the number of B tokens in the pool. Note, these are the actual numbers of tokens, not their dollar equivalent values. So say the pool currently holds one thousand A tokens and ten thousand B tokens. The product of these numbers is ten million. Now I come along with a hundred A tokens that I wish to trade for B tokens. The number of B I get for my hundred A is calculated as follows.
 
-	Number of A now in pool: 1,000 + 100 = 1,100 (number of A in pool beforehand, plus the number I added)  
+	Number of A now in pool: 1,000 + 100 (number of A in pool beforehand, plus the number I added) = 1,100   
 	Number of B now in pool: 10,000 - x (number of B in pool beforehand, minus x, the number I received)
 
 We want the product of these numbers to still be ten million, as it was before my trade. So we have
@@ -24,7 +24,7 @@ So I get 909.91 B for my 100 A. I do not get 1,000 B as I might have expected gi
 
 If someone else comes straight after me with another 100 A to trade they will get a worse deal than I did, simply because my transaction just happened [_and so the possibility of front running arises_]. For them the figures are 
 
-	Number of A now in pool: 1,100 + 100 = 1,200 (number of A in pool beforehand, plus the number they added)  
+	Number of A now in pool: 1,100 + 100 (number of A in pool beforehand, plus the number they added) = 1,200  
 	Number of B now in pool: 9,090.91 - x (number of B in pool beforehand, minus x, the number they received)  
 
 We want the product of these numbers to still be ten million. So we have
