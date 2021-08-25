@@ -1,6 +1,6 @@
 # Constant Product AMMs
 
-Here's my understanding of how a "constant product" automated market maker (AMM) protocol works. This is the type of protocol used in Uniswap v2, and has been used as the basis for many others, including Uniswap v3. **Warning, what follows may not be entirely correct, I'm no expert. Any corrections or other suggestions for improvement are welcomed.**
+Here's my understanding of how a "constant product" automated market maker (AMM) protocol works. This is the type of protocol used in Uniswap v2, and has been used as the basis for many others, including Uniswap v3. **Warning, what follows may not be entirely correct. Any corrections or other suggestions for improvement are welcomed.**
 
 Say we are trading a pair of ERC-20 tokens A and B. In order for trading to be possible there must be a supply of tokens of each type that are available to be exchanged. This supply of tokens is known as liquidity and is provided by a liquidity pool, which is just a collection of tokens of the two types, A and B. The tokens in the pool are deposited by investors, who are referred to as liquidity providers. 
 
