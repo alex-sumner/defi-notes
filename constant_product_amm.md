@@ -8,8 +8,8 @@ Say we are trading a pair of ERC-20 tokens A and B. There is a liquidity pool, a
 
 Normal trading is at a rate determined by the AMM contract. For a constant product protocol the exchange rate you get is whatever is needed to keep constant the product of the number of A tokens and the number of B tokens in the pool. Note, these are the actual numbers of tokens, not their dollar equivalent values. So say the pool currently holds one thousand A tokens and ten thousand B tokens. The product of these numbers is ten million. Now I come along with a hundred A tokens that I wish to trade for B tokens. The number of B I get for my hundred A is calculated as follows.
 
-Number of A in pool after my trade: 1,000 + 100 = 1,100 (number of A in pool beforehand, plus the number I added)  
-Number of B in pool after my trade: 10,000 - x (number of B in pool beforehand, minus x, the number I received in exchange for my hundred A)
+	Number of A now in pool: 1,000 + 100 = 1,100 (number of A in pool beforehand, plus the number I added)  
+	Number of B now in pool: 10,000 - x (number of B in pool beforehand, minus x, the number I received)
 
 We want the product of these numbers to still be ten million, as it was before my trade. So we have
 
@@ -20,8 +20,8 @@ So I get 909.91 B for my 100 A. I do not get 1,000 B as I might have expected gi
 
 If someone else comes straight after me with another 100 A to trade they will get a worse deal than I did, simply because my transaction just happened [_and so the possibility of front running arises_]. For them the figures are 
 
-Number of A in pool after their trade: 1,100 + 100 = 1,200 (number of A in pool beforehand, plus the number they added)  
-Number of B in pool after their trade: 9,090.91 - x (number of B in pool beforehand, minus x, the number they received in exchange for their hundred A)  
+	Number of A now in pool: 1,100 + 100 = 1,200 (number of A in pool beforehand, plus the number they added)  
+	Number of B now in pool: 9,090.91 - x (number of B in pool beforehand, minus x, the number they received)  
 
 We want the product of these numbers to still be ten million. So we have
 
@@ -36,7 +36,7 @@ As long as people keep only swapping A for B the exchange rate keeps moving in t
 
 ## Liquidity providers
 
-When liquidity providers add liquidity they must deposit, or stake as it's called, an equal dollar equivalent value of A and B. So if an A is worth ten B they must stake one A and ten B, or twenty A and two hundred B, etc. Unlike normal trading, adding or removing liquidity will change the product of the number of A and the number of B in the pool. Let's say the pool has one thousand A and ten thousand B, so the product is ten million. I can stake an additional two hundred A and two thousand B. After this the pool has twelve hundred A and twelve thousand B, so the product is now fourteen point four million. From that point onwards normal trading of A for B, or vice versa, will be at a rate which preserves this new product. 
+When liquidity providers add liquidity they must deposit, or stake as it's called, an equal dollar equivalent value of A and B as determined by the AMM's current exchange rate. So if an A is worth ten B they must stake one A and ten B, or twenty A and two hundred B, etc. Put another way, additions to the liquidity pool must add tokens A and B in the same proportion that they already have in the pool. Whereas normal trading changes the proportion of absolute numbers [_not dollar equivalent values_] of A and B in the pool, because some of one kind comes in and some of the other goes out, adding or removing liquidity is not allowed to change the numbers ratio. On the other hand, adding or removing liquidity will change the product of the number of A and the number of B in the pool, whereas normal trading will not. Let's say the pool has one thousand A and ten thousand B, so the product is ten million. I can stake an additional two hundred A and two thousand B. After this the pool has twelve hundred A and twelve thousand B, so the product is now fourteen point four million. From that point onwards normal trading of A for B, or vice versa, will be at a rate which preserves this new product. 
 
 Liquidity providers are rewarded with a percentage sliced off every trade made, which is distributed amongst them according to the percentage of the pool that they provided. As providers add or withdraw liquidity the percentage of the total liquidity pool currently provided by each is tracked. So if the pool contains one thousand A and ten thousand B, then I stake a further one thousand A and ten thousand B, I have provided fifty percent of the liquidity pool and will get half of all the liquidity provider fees. If someone else stakes a further one thousand A and ten thousand B then we have each provided one third of the pool and will each get one third of the fees, and so on.
 
