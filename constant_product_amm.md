@@ -1,6 +1,6 @@
 # Constant Product AMMs
 
-Here's my understanding of how a "constant product" automated market maker (AMM) protocol works. This is the type of protocol used in Uniswap v2, and has been used as the basis for many others, including Uniswap v3. **Warning, what follows may not be entirely correct. Any corrections or other suggestions for improvement are welcomed.**
+Here's my understanding of how a "constant product" automated market maker (AMM) protocol works. This is the type of protocol used in Uniswap v2, and has been used as the basis for many others, including Uniswap v3. **Any corrections or other suggestions for improvement are welcomed.**
 
 Say we are trading a pair of ERC-20 tokens A and B. In order for trading to be possible there must be a supply of tokens of each type that are available to be exchanged. This supply of tokens is known as liquidity and is provided by a liquidity pool, which is just a collection of tokens of the two types, A and B. The tokens in the pool are deposited by investors, who are referred to as liquidity providers. 
 
@@ -20,7 +20,7 @@ We want the product of these numbers to still be ten million, as it was before m
 	1,100 * (10,000 - x) = 10,000,000  
 	x = 10,000 - 10,000,000/1,100 ~= 909.91
 
-So I get 909.91 B for my 100 A. I do not get 1,000 B as I might have expected given the starting exchange rate of 10 to 1, this is the slippage. The numbers of tokens in the pool after this are A: 1,100; B: 9,090.91 and the product of these numbers is still ten million. [_In reality I would get a bit less than this, because Uniswap would also charge me a fee._] This is an extreme example because my trade of 100 A involves quite a large percentage (~10%) of the total number of A in the pool. Normally you would be trading a much smaller amount relative to the pool size, resulting in much less slippage.
+So I get 909.91 B for my 100 A. I do not get 1,000 B as I might have expected given the starting exchange rate of 10 to 1, this is the slippage. The numbers of tokens in the pool after this are A: 1,100; B: 9,090.91 and the product of these numbers is still ten million. [_In reality I would get a bit less than this, because the exchange would also charge me a fee._] This is an extreme example because my trade of 100 A involves quite a large percentage (~10%) of the total number of A in the pool. Normally you would be trading a much smaller amount relative to the pool size, resulting in much less slippage.
 
 If someone else comes straight after me with another 100 A to trade they will get a worse deal than I did, simply because my transaction just happened [_and so the possibility of front running arises_]. For them the figures are 
 
